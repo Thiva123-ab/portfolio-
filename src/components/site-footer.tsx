@@ -1,4 +1,4 @@
-import { Github, Linkedin } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "@/components/brand-icons";
 import { profile } from "@/data/site";
 
 export function SiteFooter() {
@@ -17,7 +17,7 @@ export function SiteFooter() {
             aria-label="GitHub"
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line transition hover:border-accent/60"
           >
-            <Github className="h-4 w-4" />
+            <GithubIcon className="h-4 w-4" />
           </a>
           <a
             href={profile.linkedin}
@@ -26,7 +26,7 @@ export function SiteFooter() {
             aria-label="LinkedIn"
             className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line transition hover:border-accent/60"
           >
-            <Linkedin className="h-4 w-4" />
+            <LinkedinIcon className="h-4 w-4" />
           </a>
           <a
             href="/#home"

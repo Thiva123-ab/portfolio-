@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowUpRight, Github, Linkedin } from "lucide-react";
+import { ArrowUpRight } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "@/components/brand-icons";
 import { motion, useReducedMotion } from "framer-motion";
 import { profile } from "@/data/site";
 import { HeroVisual } from "@/components/hero-visual";
@@ -82,7 +83,7 @@ export function Hero() {
               className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line transition hover:border-accent/60"
               aria-label="GitHub profile"
             >
-              <Github className="h-4 w-4" />
+              <GithubIcon className="h-4 w-4" />
             </a>
             <a
               href={profile.linkedin}
@@ -91,7 +92,7 @@ export function Hero() {
               className="inline-flex h-10 w-10 items-center justify-center rounded-full border border-line transition hover:border-accent/60"
               aria-label="LinkedIn profile"
             >
-              <Linkedin className="h-4 w-4" />
+              <LinkedinIcon className="h-4 w-4" />
             </a>
           </motion.div>
 

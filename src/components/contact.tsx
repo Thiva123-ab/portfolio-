@@ -1,6 +1,7 @@
 "use client";
 
-import { Github, Linkedin, Mail, Send } from "lucide-react";
+import { Mail, Send } from "lucide-react";
+import { GithubIcon, LinkedinIcon } from "@/components/brand-icons";
 import { FormEvent, useState } from "react";
 import { profile } from "@/data/site";
 import { Reveal } from "@/components/reveal";
@@ -95,7 +96,7 @@ export function Contact() {
               rel="noopener noreferrer"
               className="flex items-center gap-3 rounded-2xl border border-line bg-surface/60 p-4 transition hover:border-accent/50"
             >
-              <Linkedin className="h-4 w-4 text-accent" />
+              <LinkedinIcon className="h-4 w-4 text-accent" />
               <span>
                 <span className="block text-sm font-medium">LinkedIn</span>
                 <span className="block text-xs text-muted">thivanka-tharuka</span>
@@ -107,7 +108,7 @@ export function Contact() {
               rel="noopener noreferrer"
               className="flex items-center gap-3 rounded-2xl border border-line bg-surface/60 p-4 transition hover:border-accent/50"
             >
-              <Github className="h-4 w-4 text-accent" />
+              <GithubIcon className="h-4 w-4 text-accent" />
               <span>
                 <span className="block text-sm font-medium">GitHub</span>
                 <span className="block text-xs text-muted">Thiva123-ab</span>
