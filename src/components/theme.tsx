@@ -1,43 +1,34 @@
 "use client";
 
 import { Moon, Sun } from "lucide-react";
-import {
-  createContext,
-  useContext,
-  useLayoutEffect,
-  useState,
-  type ReactNode,
-} from "react";
+import { useSyncExternalStore } from "react";
 
 type Theme = "dark" | "light";
 
-const ThemeContext = createContext<{
-  theme: Theme;
-  toggle: () => void;
-}>({ theme: "dark", toggle: () => undefined });
+function subscribe(onStoreChange: () => void) {
+  window.addEventListener("theme-change", onStoreChange);
+  return () => window.removeEventListener("theme-change", onStoreChange);
+}
 
-export function ThemeProvider({ children }: { children: ReactNode }) {
-  const [theme, setTheme] = useState<Theme>("dark");
+function getSnapshot(): Theme {
+  return document.documentElement.dataset.theme === "light" ? "light" : "dark";
+}
 
-  useLayoutEffect(() => {
-    const saved = document.documentElement.dataset.theme;
-    if (saved === "light" || saved === "dark") setTheme(saved);
-  }, []);
+function getServerSnapshot(): Theme {
+  return "dark";
+}
+
+export function useTheme() {
+  const theme = useSyncExternalStore(subscribe, getSnapshot, getServerSnapshot);
 
   function toggle() {
     const next: Theme = theme === "dark" ? "light" : "dark";
     document.documentElement.dataset.theme = next;
     localStorage.setItem("theme", next);
-    setTheme(next);
+    window.dispatchEvent(new Event("theme-change"));
   }
 
-  return (
-    <ThemeContext.Provider value={{ theme, toggle }}>{children}</ThemeContext.Provider>
-  );
-}
-
-export function useTheme() {
-  return useContext(ThemeContext);
+  return { theme, toggle };
 }
 
 export function ThemeToggle() {

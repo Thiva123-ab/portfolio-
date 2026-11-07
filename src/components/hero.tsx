@@ -1,6 +1,7 @@
 "use client";
 
 import { ArrowUpRight } from "lucide-react";
+import Link from "next/link";
 import { GithubIcon, LinkedinIcon } from "@/components/brand-icons";
 import { motion, useReducedMotion } from "framer-motion";
 import { profile } from "@/data/site";
@@ -60,13 +61,13 @@ export function Hero() {
             transition={{ ...rise.transition, delay: 0.3 }}
             className="mt-8 flex flex-wrap items-center gap-3"
           >
-            <a
+            <Link
               href="/#projects"
               className="inline-flex items-center gap-2 rounded-full bg-foreground px-5 py-2.5 text-sm font-medium text-background transition hover:opacity-90"
             >
               View My Projects
               <ArrowUpRight className="h-4 w-4" />
-            </a>
+            </Link>
             {profile.cvUrl ? (
               <a
                 href={profile.cvUrl}

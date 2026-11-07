@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { GithubIcon, LinkedinIcon } from "@/components/brand-icons";
 import { profile } from "@/data/site";
 
@@ -28,17 +29,17 @@ export function SiteFooter() {
           >
             <LinkedinIcon className="h-4 w-4" />
           </a>
-          <a
+          <Link
             href="/#home"
             className="rounded-full border border-line px-4 py-2 text-sm text-muted transition hover:text-foreground"
           >
             Back to top
-          </a>
+          </Link>
         </div>
       </div>
       <div className="border-t border-line">
         <p className="mx-auto max-w-6xl px-5 py-4 text-xs text-muted sm:px-8">
-          © {new Date().getFullYear()} {profile.name}. All rights reserved.
+          © 2026 {profile.name}. All rights reserved.
         </p>
       </div>
     </footer>
